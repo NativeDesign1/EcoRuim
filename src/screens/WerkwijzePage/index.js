@@ -1,0 +1,1 @@
+export { WerkwijzePage } from "./WerkwijzePage";
