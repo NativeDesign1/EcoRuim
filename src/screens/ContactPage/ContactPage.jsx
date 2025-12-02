@@ -27,9 +27,9 @@ export const ContactPage = () => {
 
     try {
       // EmailJS configuratie
-      const serviceId = "YOUR_SERVICE_ID"; // Vervang met je EmailJS Service ID
-      const templateId = "YOUR_TEMPLATE_ID"; // Vervang met je EmailJS Template ID
-      const publicKey = "YOUR_PUBLIC_KEY"; // Vervang met je EmailJS Public Key
+      const serviceId = "service_b251igg"; // Vervang met je EmailJS Service ID
+      const templateId = "template_r2avbsi"; // Vervang met je EmailJS Template ID
+      const publicKey = "yGM9S8p7l7IY45Di-"; // Vervang met je EmailJS Public Key
 
       // Template parameters
       const templateParams = {
@@ -145,7 +145,7 @@ export const ContactPage = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2678d1] focus:border-transparent transition-all"
-                        placeholder="0486 97 32 50"
+                        placeholder="0488 88 88 50"
                       />
                     </div>
                   </div>
