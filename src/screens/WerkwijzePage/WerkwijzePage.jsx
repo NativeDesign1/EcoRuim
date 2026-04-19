@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { Layout } from "../../components/Layout";
 import { Card, CardContent } from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
@@ -89,6 +90,14 @@ const principles = [
 export const WerkwijzePage = () => {
   return (
     <Layout>
+      <Helmet>
+        <title>Werkwijze | EcoRuim – Hoe Wij Werken</title>
+        <meta name="description" content="Leer hoe EcoRuim te werk gaat: van eerste contact en bezichtiging tot ontruiming, afvalverwerking en bezemschone oplevering. Transparant en betrouwbaar." />
+        <link rel="canonical" href="https://ecoruim.be/werkwijze" />
+        <meta property="og:title" content="Werkwijze | EcoRuim – Ons Ontruimingsproces" />
+        <meta property="og:description" content="Van intake tot oplevering: ontdek ons gestructureerde ontruimingsproces in 6 duidelijke stappen." />
+        <meta property="og:url" content="https://ecoruim.be/werkwijze" />
+      </Helmet>
       <section className="w-full py-12 md:py-16 lg:py-20 overflow-hidden">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-12 md:mb-16">

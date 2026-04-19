@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { Layout } from "../../components/Layout";
 import { Button } from "../../components/ui/button";
 import { Link } from "react-router-dom";
@@ -87,6 +88,14 @@ const benefits = [
 export const DienstenPage = () => {
   return (
     <Layout>
+      <Helmet>
+        <title>Onze Diensten | EcoRuim – Ontruiming, Afvalverwerking & Meer</title>
+        <meta name="description" content="Ontdek de diensten van EcoRuim: woningontruiming, kantoorontruiming, bedrijfsontruiming, afvalverwerking en elektriciteitswerken in heel Vlaanderen. Vraag een gratis offerte aan." />
+        <link rel="canonical" href="https://ecoruim.be/diensten" />
+        <meta property="og:title" content="Onze Diensten | EcoRuim – Ontruiming & Afvalverwerking" />
+        <meta property="og:description" content="Woningontruiming, kantoorontruiming, bedrijfsontruiming en afvalverwerking in Vlaanderen. Professioneel en duurzaam." />
+        <meta property="og:url" content="https://ecoruim.be/diensten" />
+      </Helmet>
       <section className="w-full overflow-hidden bg-white">
         <div
           className="relative w-full py-16 md:py-24 lg:py-32 bg-cover bg-center"

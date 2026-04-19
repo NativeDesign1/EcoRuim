@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { Layout } from "../../components/Layout";
 import { Card, CardContent } from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
@@ -49,6 +50,14 @@ const reasons = [
 export const OverOnsPage = () => {
   return (
     <Layout>
+      <Helmet>
+        <title>Over Ons | EcoRuim – Uw Partner voor Ontruiming in Vlaanderen</title>
+        <meta name="description" content="Leer EcoRuim kennen: meer dan 10 jaar ervaring, 500+ tevreden klanten en 95% recycling. Professioneel, betrouwbaar en duurzaam ontruimingsbedrijf in Vlaanderen." />
+        <link rel="canonical" href="https://ecoruim.be/over-ons" />
+        <meta property="og:title" content="Over Ons | EcoRuim – Ontruimingsbedrijf Vlaanderen" />
+        <meta property="og:description" content="Meer dan 10 jaar ervaring in professionele ontruiming. 500+ tevreden klanten en 95% recycling." />
+        <meta property="og:url" content="https://ecoruim.be/over-ons" />
+      </Helmet>
       <div
         className="relative w-full py-16 md:py-24 lg:py-32 bg-cover bg-center overflow-hidden"
         style={{ backgroundImage: "url('/hero.png')" }}

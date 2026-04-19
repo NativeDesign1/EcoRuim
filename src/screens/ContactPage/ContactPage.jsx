@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Layout } from "../../components/Layout";
 import { Card, CardContent } from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
@@ -80,6 +81,14 @@ export const ContactPage = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Contact | EcoRuim – Vraag een Gratis Offerte Aan</title>
+        <meta name="description" content="Neem contact op met EcoRuim voor een vrijblijvende offerte. Bel 0486 97 32 50 of mail info@ecoruim.be. We zijn actief in heel Vlaanderen." />
+        <link rel="canonical" href="https://ecoruim.be/contact" />
+        <meta property="og:title" content="Contact | EcoRuim – Gratis Offerte Aanvragen" />
+        <meta property="og:description" content="Neem contact op met EcoRuim voor professionele ontruiming. Bel 0486 97 32 50 of stuur een bericht." />
+        <meta property="og:url" content="https://ecoruim.be/contact" />
+      </Helmet>
       <section className="w-full py-12 md:py-16 lg:py-20 overflow-hidden">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-12 md:mb-16">
