@@ -7,6 +7,8 @@ import logo from "../../../../assets/logo.svg";
 const navigationItems = [
   { label: "Home", path: "/" },
   { label: "Diensten", path: "/diensten" },
+  { label: "Erfenisontruiming", path: "/erfenisontruiming" },
+  { label: "Tarieven", path: "/tarieven" },
   { label: "Werkwijze", path: "/werkwijze" },
   { label: "Over Ons", path: "/over-ons" },
   { label: "Contact", path: "/contact" },

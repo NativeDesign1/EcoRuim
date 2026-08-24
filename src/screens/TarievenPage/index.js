@@ -1,0 +1,1 @@
+export { TarievenPage } from "./TarievenPage";

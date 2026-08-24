@@ -6,6 +6,9 @@ import logo from "../../../../assets/logo.svg";
 const navigationLinks = [
   { label: "Home", path: "/" },
   { label: "Diensten", path: "/diensten" },
+  { label: "Erfenisontruiming", path: "/erfenisontruiming" },
+  { label: "Tarieven", path: "/tarieven" },
+  { label: "Veelgestelde vragen", path: "/veelgestelde-vragen" },
   { label: "Werkwijze", path: "/werkwijze" },
   { label: "Over Ons", path: "/over-ons" },
   { label: "Contact", path: "/contact" },
