@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Layout } from "../../components/Layout";
 import { Card, CardContent } from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
 import { MapPinIcon, PhoneIcon, MailIcon, ClockIcon } from "lucide-react";
 import emailjs from "@emailjs/browser";
+import { getAdsTracking } from "../../lib/adsTracking";
 
 export const ContactPage = () => {
+  const sending = useRef(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,6 +26,8 @@ export const ContactPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (sending.current || !e.currentTarget.reportValidity()) return;
+    sending.current = true;
     setStatus({ submitting: true, success: false, error: false });
 
     try {
@@ -43,7 +47,14 @@ export const ContactPage = () => {
         to_email: "info@ecoruim.be", // Jouw email adres
       };
 
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      const response = await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      if (response.status !== 200) throw new Error("Email service did not confirm sending");
+
+      // Count only after EmailJS confirms acceptance, never on click/submit/page load.
+      // Tracking failure is isolated from delivery to prevent duplicate resubmissions.
+      try {
+        getAdsTracking().trackSuccessfulLead(window.crypto.randomUUID());
+      } catch { /* Delivery succeeded even if measurement is unavailable. */ }
 
       setStatus({ submitting: false, success: true, error: false });
       
@@ -57,18 +68,10 @@ export const ContactPage = () => {
         message: "",
       });
 
-      // Reset success message na 5 seconden
-      setTimeout(() => {
-        setStatus({ submitting: false, success: false, error: false });
-      }, 5000);
     } catch (error) {
-      console.error("Error sending email:", error);
       setStatus({ submitting: false, success: false, error: true });
-      
-      // Reset error message na 5 seconden
-      setTimeout(() => {
-        setStatus({ submitting: false, success: false, error: false });
-      }, 5000);
+    } finally {
+      sending.current = false;
     }
   };
 
@@ -217,7 +220,7 @@ export const ContactPage = () => {
                   </div>
 
                   {status.success && (
-                    <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
+                    <div role="status" className="p-4 bg-green-50 border border-green-200 rounded-lg">
                       <p className="text-green-800 text-sm font-medium">
                         ✓ Uw bericht is succesvol verzonden! We nemen zo spoedig mogelijk contact met u op.
                       </p>
@@ -225,7 +228,7 @@ export const ContactPage = () => {
                   )}
 
                   {status.error && (
-                    <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+                    <div role="alert" className="p-4 bg-red-50 border border-red-200 rounded-lg">
                       <p className="text-red-800 text-sm font-medium">
                         ✗ Er is een fout opgetreden bij het verzenden. Probeer het opnieuw of neem telefonisch contact op.
                       </p>

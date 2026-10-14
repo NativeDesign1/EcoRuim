@@ -8,6 +8,7 @@ import { ContactPage } from "./screens/ContactPage";
 import { ErfenisontruimingPage } from "./screens/ErfenisontruimingPage";
 import { TarievenPage } from "./screens/TarievenPage";
 import { FaqPage } from "./screens/FaqPage";
+import { MeasurementConsent } from "./components/MeasurementConsent";
 
 export const App = () => {
   return (
@@ -22,6 +23,7 @@ export const App = () => {
         <Route path="/over-ons" element={<OverOnsPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
+      <MeasurementConsent />
     </Router>
   );
 };
